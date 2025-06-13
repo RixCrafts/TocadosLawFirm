@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let translatedHost = cleanHost + '.translate.goog';
                 let translatedUrl = `${protocol}//${translatedHost}${pathname}${search}`;
                 // Add translation parameters
-                translatedUrl += (search ? '&' : '?') + '_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+                translatedUrl += (search ? '&' : '?') + '_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en-US&_x_tr_pto=wapp';
                 window.location.href = translatedUrl;
             } else {
                 // Remove '.translate.goog' and everything after '?'
