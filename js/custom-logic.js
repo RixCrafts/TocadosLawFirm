@@ -20,22 +20,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// ES - EN switch
-document.addEventListener("DOMContentLoaded", function () {
-    const langLink = document.querySelector('.language-change-link');
-    if (!langLink) return;
+// ...existing code...
+document.addEventListener('DOMContentLoaded', function () {
+    var langBtn = document.getElementById('lang-switch-btn');
+    var langLabel = document.querySelector('#lang-switch-label');
 
     // Check if the current URL is the translated (Spanish) version
     const isSpanish = window.location.href.includes('_x_tr_tl=es');
 
-    // Toggle link text
-    langLink.textContent = isSpanish ? 'EN' : 'ES';
+    langLabel.textContent = isSpanish ? 'EN' : 'ES';
 
-    // Optionally, update the href to switch between EN and ES
-    // If you want the link to always switch to the other language:
-    if (isSpanish) {
-        langLink.href = window.location.origin.replace('.translate.goog', '') || '/';
-    } else {
-        langLink.href = 'https://tocadoslaw-com.translate.goog/?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+    if (langBtn) {
+        langBtn.addEventListener('click', function () {
+            if(!isSpanish){
+                // Redirect to Spanish version (adjust URL as needed)
+                window.location.href = 'https://tocadoslaw-com.translate.goog/?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+            }else{
+                // Redirect to English version (adjust URL as needed)
+                window.location.href = window.location.origin.replace('.translate.goog', '') || '/';
+            }
+        });
     }
 });
+  // ...existing code...
