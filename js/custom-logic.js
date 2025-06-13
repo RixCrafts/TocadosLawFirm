@@ -1,4 +1,4 @@
-
+console.info("Custom JavaScript loaded successfully.");
 document.addEventListener("DOMContentLoaded", function () {
 
     // ------------------------ Contact Form Logic
@@ -18,20 +18,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const langBtn = document.getElementById('lang-switch-btn');
     const langLabel = document.querySelector('#lang-switch-btn-label');
 
+    console.log('Language switch button:', langBtn);
+
     // Check if the current URL is the translated (Spanish) version
-    const isSpanish = window.location.href.includes('_x_tr_tl=es');
+    const isSpanish = window.location.hostname.includes('.translate.goog');
 
     langLabel.innerText = isSpanish ? 'ES' : 'EN';
 
+    
+    
+    
     if (langBtn) {
         langBtn.addEventListener('click', function () {
+            let currentUrl = window.location.href;
+            console.log(`currentUrl: ${currentUrl}`);
+            
             if (!isSpanish) {
-                // Redirect to Spanish version (adjust URL as needed)
-                window.location.href = 'https://rixcrafts-github-io.translate.goog/TocadosLawFirm/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+                // Build translated URL dynamically
+                const { protocol, host, pathname, search } = window.location;
+                // Remove 'www.' if present for translation proxy
+                let cleanHost = host.replace(/^www\./, '');
+                let translatedHost = cleanHost + '.translate.goog';
+                let translatedUrl = `${protocol}//${translatedHost}${pathname}${search}`;
+                // Add translation parameters
+                translatedUrl += (search ? '&' : '?') + '_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+                window.location.href = translatedUrl;
             } else {
-                // Redirect to English version (adjust URL as needed)
-                // window.location.href = window.location.origin.replace('.translate.goog', '') || '/';
-                window.location.href = 'https://rixcrafts-github-io/TocadosLawFirm/index.html';
+                // Remove '.translate.goog' and everything after '?'
+                let url = window.location.href;
+                let noTranslate = url.replace('.translate.goog', '');
+                let cleanUrl = noTranslate.split('?')[0];
+                window.location.href = cleanUrl;
             }
         });
     }
