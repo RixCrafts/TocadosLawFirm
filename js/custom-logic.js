@@ -23,10 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the current URL is the translated (Spanish) version
     const isSpanish = window.location.hostname.includes('.translate.goog');
 
-    langLabel.innerText = isSpanish ? 'ES' : 'EN';
+    if( isSpanish) {
+        document.querySelector('.language-switch-top').style.display = 'none';
+    }else{
+        document.querySelector('.language-switch-top').style.display = 'flex';
+    }
 
-    
-    
+    langLabel.innerText = isSpanish ? 'ES' : 'EN';    
     
     if (langBtn) {
         langBtn.addEventListener('click', function () {
@@ -45,10 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = translatedUrl;
             } else {
                 // Remove '.translate.goog' and everything after '?'
-                let url = window.location.href;
-                let noTranslate = url.replace('.translate.goog', '');
-                let cleanUrl = noTranslate.split('?')[0];
-                window.location.href = cleanUrl;
+                // let url = window.location.href;
+                // let noTranslate = url.replace('.translate.goog', '');
+                // let cleanUrl = noTranslate.split('?')[0];
+                // window.location.href = cleanUrl;
             }
         });
     }
