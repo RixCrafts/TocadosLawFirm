@@ -16,17 +16,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ------------------------- Language Switch Logic
     const langBtn = document.getElementById('lang-switch-btn');
-    const isSpanish = window.location.hostname.includes('.translate.goog');
+    const isSpanish = window.location.href.includes('/es-US/');
+    console.log("Is Spanish:", isSpanish); 
 
-    if( isSpanish) {
-        document.querySelector('.language-switch-top').style.display = 'none';
-    }else{
-        document.querySelector('.language-switch-top').style.display = 'flex';
-    }  
-    
     if (langBtn) {
         langBtn.addEventListener('click', function () {
-            window.location.href = "https://rixcrafts-github-io.translate.goog/TocadosLawFirm/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp"
+            let path = window.location.pathname;
+            let search = window.location.search;
+            let newPath;
+
+            if (isSpanish) {
+
+                // Remove '/es-US/' from the path
+                newPath = path.replace('/es-US/', '/');
+            } else {
+                // Insert '/es-US/' before the file name
+                newPath = path.replace(/\/([^\/]+\.html)$/, '/es-US/$1');
+            }
+
+            window.location.href = newPath + search;
         });
     }
 });
