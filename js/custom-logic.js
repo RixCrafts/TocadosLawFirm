@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         langBtn.addEventListener('click', function () {
             if(!isSpanish){
                 // Redirect to Spanish version (adjust URL as needed)
-                window.location.href = 'https://tocadoslaw-com.translate.goog/?_x_tr_sch=http&_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
+                window.location.href = 'https://rixcrafts-github-io.translate.goog/TocadosLawFirm/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=en&_x_tr_pto=wapp';
             }else{
                 // Redirect to English version (adjust URL as needed)
                 window.location.href = window.location.origin.replace('.translate.goog', '') || '/';
