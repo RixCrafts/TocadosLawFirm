@@ -29,9 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Remove '/es-US/' from the path
                 newPath = path.replace('/es-US/', '/');
+                console.log("New Path (English):", newPath);
             } else {
                 // Insert '/es-US/' before the file name
                 newPath = path.replace(/\/([^\/]+\.html)$/, '/es-US/$1');
+                console.log("New Path (Spanish):", newPath);
             }
 
             window.location.href = newPath + search;
