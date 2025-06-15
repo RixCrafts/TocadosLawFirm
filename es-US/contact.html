@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Thu Jun 05 2025 20:05:45 GMT+0000 (Coordinated Universal Time)  -->
-<html lang="ES" data-wf-page="68211ef523c440bb823acec7" data-wf-site="68211ef523c440bb823ace6c">
+<html lang="es" data-wf-page="68211ef523c440bb823acec7" data-wf-site="68211ef523c440bb823ace6c">
 
 <head>
   <meta charset="utf-8">
@@ -115,15 +115,17 @@
                 <div class="form-content">
                   <div class="form-wrapper">
                     <div class="form-text">3</div>
-                    <div class="from-inner"><input class="text-field w-input" maxlength="256" name="Phone-Number-2"
+                    <div class="from-inner">
+                      <!-- TODO: Validate entry -->
+                      <input class="text-field w-input" maxlength="256" name="Phone-Number-2"
                         data-name="Phone Number 2" type="tel" id="Phone-Number-2" required="">
                       <div class="form-text">Escriba su número de teléfono</div>
                     </div>
                   </div>
                   <div class="form-wrapper">
                     <div class="form-text">4</div>
-                    <div class="from-inner"><input class="text-field w-input" maxlength="256" name="Business-Name-2"
-                        data-name="Business Name 2" type="text" id="Business-Name-2" required="">
+                    <div class="from-inner"><input class="text-field w-input" maxlength="256" name="Email"
+                        data-name="Email" type="email" id="Email" required="">
                       <div class="form-text">Escriba su dirección de correo electrónico</div>
                     </div>
                   </div>
@@ -134,14 +136,14 @@
                     <div class="from-inner">
                       <div class="paragraph-18px">Cuéntenos más</div>
                       <div class="form-text">Escriba lo que desee</div><textarea required="" placeholder=""
-                        maxlength="5000" id="Message-2" name="Message from the client" data-name="Message 2"
+                        maxlength="5000" id="Message-2" name="Mensaje" data-name="Message 2"
                         class="text-field text-area w-input"></textarea>
                     </div>
                   </div>
                 </div>
                 <div class="form-button-wrapper"><label class="w-checkbox checkbox-field">
                     <div class="w-checkbox-input w-checkbox-input--inputType-custom checkbox"></div><input
-                      type="checkbox" id="checkbox-2" name="checkbox-2" data-name="Checkbox 2"
+                      type="checkbox" id="checkbox-2" name="Acuerdo de Aviso Legal" data-name="Checkbox 2"
                       style="opacity:0;position:absolute;z-index:-1"><span class="checkbox-label w-form-label"
                       for="checkbox-2">Estoy de acuerdo con el <a href="#" class="checkbox-link">Aviso Legal</a></span>
                   </label>
@@ -151,12 +153,13 @@
                   </a>
                 </div>
               </form>
-              <div class="success-message w-form-done">
+              <!-- TODO: Implement as an Alert -->
+              <!-- <div class="success-message w-form-done">
                 <div>¡Gracias! ¡Su envío ha sido recibido!</div>
               </div>
               <div class="w-form-fail">
                 <div>¡Ups! Algo salió mal al enviar el formulario.</div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

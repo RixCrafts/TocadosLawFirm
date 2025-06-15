@@ -944,7 +944,7 @@ p {
 }
 
 .text-field::placeholder {
-  color: #fff;
+  color: #ffffff50;
 }
 
 .text-field.text-area {
