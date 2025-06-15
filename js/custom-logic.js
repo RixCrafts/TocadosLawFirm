@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // ------------------------- Language Switch Logic
     const langBtn = document.getElementById('lang-switch-btn');
     const isSpanish = window.location.href.includes('/es-US/');
-    console.log("Is Spanish:", isSpanish); 
 
     if (langBtn) {
         langBtn.addEventListener('click', function () {
@@ -28,11 +27,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isSpanish) {
 
                 // Remove '/es-US/' from the path
-                newPath = path.replace('/es-US/', '/');
+                if (path === '/es-US/' || path === '/es-US/index.html') {
+                    newPath = '/index.html';
+                } else {
+                    newPath = path.replace('/es-US/', '/');
+                }
                 console.log("New Path (English):", newPath);
             } else {
                 // Insert '/es-US/' before the file name
-                newPath = path.replace(/\/([^\/]+\.html)$/, '/es-US/$1');
+                if (path === '/' || path === '/index.html') {
+                    newPath = '/es-US/index.html';
+                } else {
+                    newPath = path.replace(/\/([^\/]+\.html)$/, '/es-US/$1');
+                }
                 console.log("New Path (Spanish):", newPath);
             }
 
