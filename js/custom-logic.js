@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (isSpanish) {
 
                 // Remove '/es-US/' from the path
-                if (path === '/es-US/' || path === '/es-US/index.html') {
+                if (path.endsWith("/es-US/") || path.endsWith("/es-US/index.html")) {
                     newPath = '/index.html';
                 } else {
                     newPath = path.replace('/es-US/', '/');
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("New Path (English):", newPath);
             } else {
                 // Insert '/es-US/' before the file name
-                if (path === '/' || path === '/index.html') {
+                if (path.endsWith("/") || path.endsWith("/index.html")) {
                     newPath = '/es-US/index.html';
                 } else {
                     newPath = path.replace(/\/([^\/]+\.html)$/, '/es-US/$1');
